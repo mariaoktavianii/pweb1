@@ -1,0 +1,82 @@
+/* Styling dasar */
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #4682b4;
+    color: white;
+    padding: 10px;
+}
+
+nav {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 10px; /* Jarak antar elemen */
+}
+
+nav ul li a {
+    color: #4682b4;
+    text-decoration: none;
+}
+
+main {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #4682b4;
+}
+
+section p {
+    text-align: justify;
+}
+
+section ul {
+    list-style-position: inside;
+    text-align: center;
+    padding: 0;
+}
+
+section ul li {
+    margin: 5px 0;
+}
+
+.contact {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact a {
+    color: #4682b4;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #4682b4;
+    color: white;
+    padding: 10px;
+}
