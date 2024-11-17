@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Alumni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        .header {
+            font-size: 3em;
+            color: blue;
+            margin-bottom: 10px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        article {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .no-results {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Pencarian Data Alumni</div>
+    <hr>
+
+    <div class="search-bar">
+        <label for="search">Cari alumni berdasarkan nama atau jurusan:</label>
+        <input type="text" id="search" placeholder="Masukkan nama atau jurusan...">
+    </div>
+
+    <div>Universitas Kuningan - Fakultas Ilmu Komputer</div>
+
+    <div class="results" id="results"></div>
+    <p class="no-results" id="no-results" style="display: none;">Tidak ada hasil yang ditemukan.</p>
+
+    <script>
+        // Data alumni
+        const alumniData = [
+            { name: "Maria Oktaviani", jurusan: "Sistem Informasi", angkatan: 2019 },
+            { name: "Yohanes Yosep", jurusan: "Teknik Informatika", angkatan: 2017 },
+            { name: "Fahda Febrian", jurusan: "Desain Komunikasi Visual", angkatan: 2017 },
+            { name: "Iis Sukmawati", jurusan: "Manajemen Informatika", angkatan: 2018 },
+        ];
+
+        // Elemen HTML
+        const searchInput = document.getElementById('search');
+        const resultsDiv = document.getElementById('results');
+        const noResults = document.getElementById('no-results');
+
+        // Fungsi untuk menampilkan data
+        const displayResults = (data, searchTerm) => {
+            resultsDiv.innerHTML = '';
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+                data.forEach(alumni => {
+                    const article = document.createElement('article');
+                    const regex = new RegExp(searchTerm, 'gi');
+                    const highlightedName = alumni.name.replace(regex, match => `<span class="highlight">${match}</span>`);
+                    const highlightedJurusan = alumni.jurusan.replace(regex, match => `<span class="highlight">${match}</span>`);
+                    article.innerHTML = `
+                        <b>Nama:</b> ${highlightedName}<br>
+                        <b>Jurusan:</b> ${highlightedJurusan}<br>
+                        <b>Angkatan:</b> ${alumni.angkatan}
+                    `;
+                    resultsDiv.appendChild(article);
+                });
+            }
+        };
+
+        // Event listener untuk input pencarian
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const filteredData = alumniData.filter(alumni =>
+                alumni.name.toLowerCase().includes(searchTerm) ||
+                alumni.jurusan.toLowerCase().includes(searchTerm)
+            );
+            displayResults(filteredData, searchTerm);
+        });
+
+        // Tampilkan semua data secara default
+        displayResults(alumniData, '');
+    </script>
+</body>
+</html>
