@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbedaan var, let, dan const</title>
+</head>
+<body>
+    <h1>Perbedaan var, let, dan const di JavaScript</h1>
+    <script>
+        function testScope() {
+            if (true) {
+                var x = 'Hello var';
+                let y = 'Hello let';
+                const z = 'Hello const';
+                console.log(x); // Output: Hello var
+                console.log(y); // Output: Hello let
+                console.log(z); // Output: Hello const
+            }
+
+            console.log(x); // Output: Hello var
+            console.log(y); // Error: y is not defined
+            console.log(z); // Error: z is not defined
+        }
+
+        testScope();
+    </script>
+</body>
+</html>

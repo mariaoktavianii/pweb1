@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Scope dalam HTML</title>
+</head>
+<body>
+    <h1>Global Scope dan Local Scope dalam JavaScript</h1>
+    <script>
+        // Variabel global scope
+        let globalVar = "Saya variabel global";
+
+        function testScope() {
+            // Variabel local scope
+            let localVar = "Saya variabel lokal";
+
+            console.log(globalVar); // Output: Saya variabel global
+            console.log(localVar);  // Output: Saya variabel lokal
+        }
+
+        testScope();
+
+        console.log(globalVar); // Output: Saya variabel global
+        console.log(localVar);  // Error: localVar is not defined
+    </script>
+</body>
+</html>
