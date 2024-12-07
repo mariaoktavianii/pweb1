@@ -1,0 +1,24 @@
+/* Menyamakan ukuran gambar pada card */
+.card-img-top {
+    width: 100%;          
+    height: 200px;        
+    object-fit: cover;    
+    object-position: center; 
+}
+
+/* Tambahan padding untuk card */
+.card-body {
+    padding: 15px;
+}
+
+/* Styling header */
+.jumbotron {
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f8f9fa;
+    font-size: 14px;
+}
